@@ -35,7 +35,6 @@ export function makeFilter(text) {
     // start from zero, filters can change this up or down
     // and the scores are summed
     app.app.score = 0;
-    // Keep the cached description literal so punctuation (like dashes) can be matched directly
     app.app.cachedDescription = app.mode
       .description(app.app)
       .toLowerCase();
