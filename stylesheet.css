@@ -28,8 +28,17 @@
   background-color: -st-accent-color;
 }
 
+.switcher-legacy .switcher-highlight {
+  color: #ffffff;
+  background-color: #215d9c;
+}
+
 .switcher-highlight:hover {
   color: #ffffff;
+}
+
+.switcher-legacy .switcher-highlight:hover {
+  background-color: #447dbc;
 }
 
 .switcher-entry {
