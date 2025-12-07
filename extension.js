@@ -35,10 +35,13 @@ import * as util from './util.js';
 import * as controlCenter from './controlCenter.js';
 
 import {Extension} from 'resource:///org/gnome/shell/extensions/extension.js';
+import * as Config from 'resource:///org/gnome/shell/misc/config.js';
 
 const keyActivation = KeyActivationModule.KeyActivation;
 const switcher = switcherModule.Switcher;
 const modeUtils = ModeUtilsModule.ModeUtils;
+
+const gnomeVersion = parseInt(Config.PACKAGE_VERSION.split('.')[0]);
 
 window.setTimeout = util.setTimeout;
 window.clearTimeout = util.clearTimeout;
@@ -156,6 +159,9 @@ function _showUI() {
 
   const fontSize = Convenience.getSettings().get_uint('font-size');
   boxLayout = new St.BoxLayout({ style_class: 'switcher-box-layout' });
+  if (gnomeVersion === 46) {
+    boxLayout.add_style_class_name('switcher-legacy');
+  }
   boxLayout.set_style('font-size: ' + fontSize + 'px');
   boxLayout.set_vertical(true);
 
